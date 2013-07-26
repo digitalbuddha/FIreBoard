@@ -99,7 +99,7 @@ $("#myTable").on('click', 'td', function() {
 
     $('#myTable').append('<tr><th>UserName</th><th>message</th></tr>');
     $('#innerP').replaceWith('<div id="innerP" class="row-fluid alert alert-success"><h5>Parent Message</h5><div class="span2 ">'+name+'</div ><div class="span6">'+text+'</div></div>');
-    path=path+'/'+name+text
+    path=path+'/'+name+text;
 
     mainNode=new Firebase(path);
 
