@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <title>AngularFire Chat Demo</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
+<!--
+      <link rel="stylesheet" href="css/flat-ui.css">
+-->
 
     <script src="js/angular.js"></script>
     <style>
@@ -20,7 +23,7 @@
     <script src='https://cdn.firebase.com/v0/firebase.js'></script>
     <!--<link href="css/flat-ui.css" rel="stylesheet">-->
 
-    <!--<link rel="stylesheet" href="css/bootstrap-responsive.min.css">-->
+    <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
     <!--<link rel="stylesheet" href="css/main.css">-->
     <script>
         var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
@@ -36,22 +39,33 @@
 <body ng-controller="Chat">
 <div class="container">
     <div class="row-fluid">
-           <button ng-click="back()" class="btn  btn-success span1" id="back" type="button">Back</button>
-           <button ng-click="home()" class="btn  btn-success span1" id="home" type="button">Home</button>
+                   <span class="span4"> 
+        <button ng-click="back()" class="btn  btn-success " id="back" type="button">Back</button>
+           <button ng-click="home()" class="btn  btn-success " id="home" type="button">Home</button>
+</span>
 
        </div>
-    <div class="row-fluid">
-        <label for="">Your name: </label><input id="name" type="text" ng-model="name">
-    </div>
-    <form ng-submit="addMessage()">
-           <input id="message" type="text" ng-model="text" placeholder="Message...">
-           <input id="send" class="btn btn-large btn-primary" type="submit" id="submit" value="Send" style="font-size:24px;">
-       </form>
-    <p></p>
-    <div id="messagesDiv"  >
+       <div class="row-fluid">
+           <span class="span1"> </span>
+       </div>
+  <div class="row-fluid"> 
+    <form class="form form-inline" ng-submit="addMessage()">
+        <div class="span12">
+        <input  id="name" class="input" type="text" ng-model="name">
+           <input id="message" class="input-xxlarge" type="text"   ng-model="text" placeholder="Message...">
+                         <input id="send" class="btn btn-large btn-primary" type="submit" id="submit" value="Send" >
+
+</div>
+    </form>
+   </div>
+    <div id="messagesDiv" class="row=fluid" >
+      <div class="span12">
         <table id="myTable"   class="table table-striped">
-                <tr ng-click="drillIn(message.name,message.text)" ng-cloak ng-repeat="message in messages" ><td>{{message.name}}</td><td>{{message.text}}</td><td>{{message.childrenCount-2}}</td></tr>
+                            <tr><td>User Name</td><td>Message</td><td>Comments</td></tr>
+  
+            <tr ng-click="drillIn(message.name,message.text)" ng-cloak ng-repeat="message in messages" ><td>{{message.name}}</td><td>{{message.text}}</td><td>{{message.childrenCount-2}}</td></tr>
         </table>
+          </div> 
     </div>
 
 </div>

@@ -6,7 +6,7 @@ angular.module('chat', ['firebase'])
             $scope.messages = angularFireCollection(mainNode);
             $scope.name = 'Guest' + Math.floor(Math.random()*101);
             $scope.addMessage = function() {
-                myDataRef = new Firebase(url+'/'+ $scope.name+$scope.text);
+                var myDataRef = new Firebase(url+'/'+ $scope.name+$scope.text);
 
                 myDataRef.setWithPriority({name: $scope.name, text: $scope.text},new Date().getTime());
                 $scope.text = "";
@@ -16,7 +16,7 @@ angular.module('chat', ['firebase'])
                 url=url+'/'+name+text;
                 mainNode=new Firebase(url);
                 $scope.messages = angularFireCollection(mainNode);
-            }
+            } 
             $scope.back = function() {
 
                 url=mainNode.parent().toString()
